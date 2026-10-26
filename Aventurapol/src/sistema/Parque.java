@@ -23,6 +23,14 @@ public class Parque {
     }
 
     public void registrarPersona(Persona p) {
+        // VALIDACIÓN: Verificación de unicidad (Regla de negocio)
+        for (Persona personaRegistrada : listaPersonas) {
+            if (personaRegistrada.getCedula().equals(p.getCedula())) {
+                System.out.println("Error: Ya existe una persona registrada con la cedula " + p.getCedula());
+                return; // Cortamos la ejecución para que no se agregue
+            }
+        }
+        
         listaPersonas.add(p);
         System.out.println("> " + p.getNombre() + " registrado exitosamente en el sistema.");
     }
@@ -37,13 +45,28 @@ public class Parque {
         }
         return null; 
     }
+    // SOBRECARGA DE MÉTODO
+    // Útil si en el futuro queremos buscar un visitante pasando el objeto directamente.
+    public Visitante buscarVisitante(Visitante visitante) {
+        if (visitante == null) return null;
+        return buscarVisitante(visitante.getCedula());
+    }
 
-    public void venderEntrada(String cedula, Entrada e) {
+        public void venderEntrada(String cedula, Entrada e) {
         Visitante v = buscarVisitante(cedula);
         if (v != null) {
             v.asignarTicket(e); 
-            this.recaudacionDiaria += e.calcularCostoTotal(); 
-            System.out.println("> Venta exitosa. Ticket asignado a " + v.getNombre());
+            
+            Double costoFinal = e.calcularCostoTotal();
+            
+            // REGLA DE NEGOCIO: Tarifas preferenciales para menores de 12 o mayores de 65
+            if (v.getEdad() < 12 || v.getEdad() > 65) {
+                System.out.println("> Aplica tarifa preferencial (50% de descuento en el precio base).");
+                costoFinal = costoFinal - (costoFinal * 0.50);
+            }
+            
+            this.recaudacionDiaria += costoFinal; 
+            System.out.println("> Venta exitosa. Ticket asignado a " + v.getNombre() + ". Total a pagar: $" + costoFinal);
         } else {
             System.out.println("Error: Visitante no encontrado.");
         }
