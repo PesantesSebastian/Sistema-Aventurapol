@@ -7,16 +7,14 @@ public class PersonalLimpieza extends Empleado {
         super(cedula, nombre, sueldo, "Personal de Limpieza");
         
         if (zonaAsignada == null || zonaAsignada.trim().isEmpty()) {
-            throw new IllegalArgumentException("Error: Debe asignar una zona de limpieza válida.");
+            throw new IllegalArgumentException("Error: Debe asignar una zona de limpieza valida.");
         }
         this.zonaAsignada = zonaAsignada;
     }
     
-    // Al heredar de Empleado, automáticamente cuenta con mostrarInformacion(), 
-    // pero podemos sobreescribirlo si queremos mostrar la zona.
     @Override
     public void mostrarInformacion() {
-        super.mostrarInformacion(); // Imprime datos básicos de empleado
+        super.mostrarInformacion();
         System.out.println("Zona Asignada: " + zonaAsignada);
     }
 }

@@ -14,10 +14,9 @@ public class EntradaVIP extends Entrada {
         this.recargoPaseRapido = recargoPaseRapido;
     }
 
-    // POLIMORFISMO APLICADO: Forma avanzada de calcular
+    
     @Override
     public Double calcularCostoTotal() {
-        // La entrada VIP suma el recargo al precio base
         return this.precioBase + this.recargoPaseRapido;
     }
 }

@@ -4,25 +4,24 @@ import base.Persona;
 import base.Entrada;
 
 public class Visitante extends Persona {
-    // Uso de Wrappers tal como indica el UML
     private Integer edad;
     private Double estatura;
     private Entrada ticket;
 
     public Visitante(String cedula, String nombre, Integer edad, Double estatura) {
-        super(cedula, nombre); // Llama al constructor de Persona
+        super(cedula, nombre); 
         
-        // Validaciones con IllegalArgumentException
+        
         if (edad == null || edad < 0 || edad > 120) {
-             throw new IllegalArgumentException("Error: La edad debe ser un número lógico entre 0 y 120.");
+             throw new IllegalArgumentException("Error: La edad debe ser un numero logico entre 0 y 120.");
         }
         if (estatura == null || estatura <= 0.0 || estatura > 2.50) {
-            throw new IllegalArgumentException("Error: La estatura ingresada no es válida.");
+            throw new IllegalArgumentException("Error: La estatura ingresada no es valida.");
         }
         
         this.edad = edad;
         this.estatura = estatura;
-        this.ticket = null; // Inicia sin ticket hasta que compre uno
+        this.ticket = null; 
     }
 
     public void asignarTicket(Entrada ticket) {
@@ -47,7 +46,7 @@ public class Visitante extends Persona {
     @Override
     public void mostrarInformacion() {
         System.out.println("--- VISITANTE ---");
-        System.out.println("Cédula: " + getCedula());
+        System.out.println("Cedula: " + getCedula());
         System.out.println("Nombre: " + getNombre());
         System.out.println("Edad: " + edad + " años");
         System.out.println("Estatura: " + estatura + " m");

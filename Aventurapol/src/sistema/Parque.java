@@ -23,11 +23,10 @@ public class Parque {
     }
 
     public void registrarPersona(Persona p) {
-        // VALIDACIÓN: Verificación de unicidad (Regla de negocio)
         for (Persona personaRegistrada : listaPersonas) {
             if (personaRegistrada.getCedula().equals(p.getCedula())) {
                 System.out.println("Error: Ya existe una persona registrada con la cedula " + p.getCedula());
-                return; // Cortamos la ejecución para que no se agregue
+                return; 
             }
         }
         
@@ -45,8 +44,6 @@ public class Parque {
         }
         return null; 
     }
-    // SOBRECARGA DE MÉTODO
-    // Útil si en el futuro queremos buscar un visitante pasando el objeto directamente.
     public Visitante buscarVisitante(Visitante visitante) {
         if (visitante == null) return null;
         return buscarVisitante(visitante.getCedula());
@@ -59,7 +56,6 @@ public class Parque {
             
             Double costoFinal = e.calcularCostoTotal();
             
-            // REGLA DE NEGOCIO: Tarifas preferenciales para menores de 12 o mayores de 65
             if (v.getEdad() < 12 || v.getEdad() > 65) {
                 System.out.println("> Aplica tarifa preferencial (50% de descuento en el precio base).");
                 costoFinal = costoFinal - (costoFinal * 0.50);
@@ -96,11 +92,6 @@ public class Parque {
         System.out.println("============================================");
     }
 
-    // =========================================================================
-    // NUEVOS METODOS PARA LUCIR EL UML (EMPLEADOS E INTERFACES)
-    // =========================================================================
-
-    // Modulo 1.2: Lista a TODOS mostrando el polimorfismo del metodo mostrarInformacion()
     public void listarTodasLasPersonas() {
         System.out.println("\n--- VISITANTES Y EMPLEADOS EN EL PARQUE ---");
         for(Persona p : listaPersonas) {
@@ -118,7 +109,7 @@ public class Parque {
         }
     }
 
-    // Modulo 2.2: Aqui brilla el UML (Interfaces, Empleados, Downcasting)
+    // Modulo 2.2: Interfaces, Empleados, Downcasting
     public void gestionarMantenimiento(String cedulaEmpleado, String nombreAtraccion, boolean nuevoEstado) {
         Persona empleado = null;
         for (Persona p : listaPersonas) {

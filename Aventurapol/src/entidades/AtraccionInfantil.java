@@ -9,16 +9,15 @@ public class AtraccionInfantil extends Atraccion {
         super(nombre);
         
         if (estaturaMaxima == null || estaturaMaxima <= 0.0) {
-            throw new IllegalArgumentException("Error: La estatura máxima es inválida.");
+            throw new IllegalArgumentException("Error: La estatura maxima es invalida.");
         }
         this.estaturaMaxima = estaturaMaxima;
     }
 
-    // POLIMORFISMO APLICADO: Reglas de acceso estrictas por máximo
     @Override
     public Boolean validarIngreso(Visitante v) {
         if (v == null) {
-            throw new IllegalArgumentException("Error: Visitante no válido.");
+            throw new IllegalArgumentException("Error: Visitante no valido.");
         }
         
         if (!isOperativa()) {
@@ -29,7 +28,7 @@ public class AtraccionInfantil extends Atraccion {
         if (v.getEstatura() <= estaturaMaxima) {
             return true;
         } else {
-            System.out.println(v.getNombre() + " supera la estatura máxima para " + getNombre() + ".");
+            System.out.println(v.getNombre() + " supera la estatura maxima para " + getNombre() + ".");
             return false;
         }
     }

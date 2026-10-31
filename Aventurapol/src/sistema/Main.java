@@ -10,11 +10,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Parque parque = new Parque();
 
-        // 1. PRECARGAMOS ATRACCIONES
+        
         parque.registrarAtraccion(new AtraccionExtrema("Montana Rusa", 1.50, 14));
         parque.registrarAtraccion(new AtraccionInfantil("Carrusel Magico", 1.30));
 
-        // 2. PRECARGAMOS EMPLEADOS
+        
         System.out.println("Iniciando sistema y registrando personal...");
         parque.registrarPersona(new Administrador("001", "Jefe Roberto", 1500.0));
         parque.registrarPersona(new Tecnico("002", "Ing. Marta", 1200.0, "Mecanica"));
@@ -70,7 +70,7 @@ public class Main {
 
                 case "2.2":
                     System.out.println("\n--- PANEL DE MANTENIMIENTO ---");
-                    System.out.print("Código del empleado autorizado: > ");
+                    System.out.print("Codigo del empleado autorizado: > ");
                     String cedEmp = scanner.nextLine();
                     System.out.print("Nombre de la atraccion (Ej. Montana Rusa): > ");
                     String nomAt = scanner.nextLine();

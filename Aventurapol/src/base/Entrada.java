@@ -2,12 +2,12 @@ package base;
 
 public abstract class Entrada {
     protected String codigoBoleto;
-    protected Double precioBase;          // ← se queda "precioBase" (Gemini rechazó #11)
+    protected Double precioBase;          
     protected Integer usosDisponibles;
 
     public Entrada(String codigoBoleto, Double precioBase, Integer usosDisponibles) {
         if (codigoBoleto == null || codigoBoleto.trim().isEmpty()) {
-            throw new IllegalArgumentException("Error: El código de boleto no puede estar vacío ni ser nulo.");
+            throw new IllegalArgumentException("Error: El codigo de boleto no puede estar vacio ni ser nulo.");
         }
         if (precioBase == null || precioBase <= 0) {
             throw new IllegalArgumentException("Error: El precio de la entrada debe ser mayor a $0.");

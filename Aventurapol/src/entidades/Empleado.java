@@ -9,11 +9,11 @@ public abstract class Empleado extends Persona {
     public Empleado(String cedula, String nombre, Double sueldo, String cargo) {
         super(cedula, nombre);
 
-        if (sueldo == null || sueldo <= 0) {                    // ← aquí el cambio
+        if (sueldo == null || sueldo <= 0) {                    
             throw new IllegalArgumentException("Error: El sueldo debe ser mayor a cero.");
         }
         if (cargo == null || cargo.trim().isEmpty()) {
-            throw new IllegalArgumentException("Error: El cargo no puede estar vacío.");
+            throw new IllegalArgumentException("Error: El cargo no puede estar vacio.");
         }
 
         this.sueldo = sueldo;
@@ -23,7 +23,7 @@ public abstract class Empleado extends Persona {
     @Override
     public void mostrarInformacion() {
         System.out.println("--- EMPLEADO ---");
-        System.out.println("Cédula: " + getCedula());
+        System.out.println("Cedula: " + getCedula());
         System.out.println("Nombre: " + getNombre());
         System.out.println("Cargo: " + cargo);
         System.out.println("Sueldo: $" + sueldo);

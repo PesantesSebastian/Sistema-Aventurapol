@@ -6,10 +6,10 @@ public abstract class Persona {
 
     public Persona(String cedula, String nombre) {
         if (cedula == null || cedula.trim().isEmpty()) {
-            throw new IllegalArgumentException("Error: La cédula no puede estar vacía ni ser nula.");
+            throw new IllegalArgumentException("Error: La cedula no puede estar vacia ni ser nula.");
         }
         if (nombre == null || nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("Error: El nombre no puede estar vacío ni ser nulo.");
+            throw new IllegalArgumentException("Error: El nombre no puede estar vacio ni ser nulo.");
         }
         this.cedula = cedula;
         this.nombre = nombre;
