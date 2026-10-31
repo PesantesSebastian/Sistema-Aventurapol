@@ -70,7 +70,7 @@ public class Main {
 
                 case "2.2":
                     System.out.println("\n--- PANEL DE MANTENIMIENTO ---");
-                    System.out.print("Cedula del empleado autorizado (Ej. 001 o 002): > ");
+                    System.out.print("Código del empleado autorizado: > ");
                     String cedEmp = scanner.nextLine();
                     System.out.print("Nombre de la atraccion (Ej. Montana Rusa): > ");
                     String nomAt = scanner.nextLine();

@@ -1,5 +1,5 @@
 package base;
 
 public interface GestionableAtraccion {
-    void cambiarEstadoAtraccion(Atraccion a, Boolean estado);
+    public void cambiarEstadoAtraccion(Atraccion a, Boolean estado);
 }

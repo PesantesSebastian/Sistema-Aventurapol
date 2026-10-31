@@ -2,12 +2,18 @@ package base;
 
 public abstract class Entrada {
     protected String codigoBoleto;
-    protected Double precioBase;
+    protected Double precioBase;          // ← se queda "precioBase" (Gemini rechazó #11)
     protected Integer usosDisponibles;
 
     public Entrada(String codigoBoleto, Double precioBase, Integer usosDisponibles) {
-        if (codigoBoleto == null || precioBase < 0 || usosDisponibles < 0) {
-            throw new IllegalArgumentException("Datos de entrada inválidos (precio o usos negativos).");
+        if (codigoBoleto == null || codigoBoleto.trim().isEmpty()) {
+            throw new IllegalArgumentException("Error: El código de boleto no puede estar vacío ni ser nulo.");
+        }
+        if (precioBase == null || precioBase <= 0) {
+            throw new IllegalArgumentException("Error: El precio de la entrada debe ser mayor a $0.");
+        }
+        if (usosDisponibles == null || usosDisponibles <= 0) {
+            throw new IllegalArgumentException("Error: Los usos disponibles deben ser mayores a 0.");
         }
         this.codigoBoleto = codigoBoleto;
         this.precioBase = precioBase;
@@ -21,11 +27,10 @@ public abstract class Entrada {
         }
         return false;
     }
-    
+
     public Integer getUsosDisponibles() {
         return usosDisponibles;
     }
 
-    // Método abstracto para el Polimorfismo
     public abstract Double calcularCostoTotal();
 }

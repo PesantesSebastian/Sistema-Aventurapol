@@ -14,7 +14,7 @@ public class Visitante extends Persona {
         
         // Validaciones con IllegalArgumentException
         if (edad == null || edad < 0 || edad > 120) {
-            throw new IllegalArgumentException("Error: La edad debe ser un número lógico entre 0 y 120.");
+             throw new IllegalArgumentException("Error: La edad debe ser un número lógico entre 0 y 120.");
         }
         if (estatura == null || estatura <= 0.0 || estatura > 2.50) {
             throw new IllegalArgumentException("Error: La estatura ingresada no es válida.");

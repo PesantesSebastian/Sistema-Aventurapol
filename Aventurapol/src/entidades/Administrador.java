@@ -1,22 +1,27 @@
 package entidades;
 
 import base.Atraccion;
+import entidades.Empleado;
 import base.GestionableAtraccion;
 
-// Hereda de Empleado y firma el contrato de la interfaz
 public class Administrador extends Empleado implements GestionableAtraccion {
 
     public Administrador(String cedula, String nombre, Double sueldo) {
-        super(cedula, nombre, sueldo, "Administrador"); 
+        super(cedula, nombre, sueldo, "Administrador");
     }
 
     @Override
     public void cambiarEstadoAtraccion(Atraccion a, Boolean estado) {
-        if (a == null) {
-            throw new IllegalArgumentException("Error: La atracción no existe.");
-        }
+        // Validación mejorada solicitada por Adriana
+       if (a == null) {
+    throw new IllegalArgumentException("Error: La atracción no existe.");
+       }
+        
         a.setOperativa(estado);
-        String txtEstado = estado ? "OPERATIVA" : "FUERA DE SERVICIO";
-        System.out.println("El Administrador " + getNombre() + " cambió el estado de '" + a.getNombre() + "' a: " + txtEstado);
+        // Operador ternario solicitado
+        String txtEstado = estado ? "OPERATIVA" : "FUERA DE SERVICIO (Mantenimiento)";
+        
+        System.out.println("El Administrador [" + this.nombre + "] ha cambiado el estado de la atracción '" 
+                           + a.getNombre() + "' a: " + txtEstado);
     }
 }

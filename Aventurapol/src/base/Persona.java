@@ -5,9 +5,11 @@ public abstract class Persona {
     protected String nombre;
 
     public Persona(String cedula, String nombre) {
-        // Validación defensiva básica solicitada
-        if (cedula == null || cedula.trim().isEmpty() || nombre == null || nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("La cédula y el nombre no pueden estar vacíos.");
+        if (cedula == null || cedula.trim().isEmpty()) {
+            throw new IllegalArgumentException("Error: La cédula no puede estar vacía ni ser nula.");
+        }
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("Error: El nombre no puede estar vacío ni ser nulo.");
         }
         this.cedula = cedula;
         this.nombre = nombre;
@@ -21,6 +23,5 @@ public abstract class Persona {
         return nombre;
     }
 
-    // Método abstracto que obligará a las hijas a mostrar su propia info
     public abstract void mostrarInformacion();
 }

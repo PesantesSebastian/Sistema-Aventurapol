@@ -8,14 +8,14 @@ public abstract class Empleado extends Persona {
 
     public Empleado(String cedula, String nombre, Double sueldo, String cargo) {
         super(cedula, nombre);
-        
-        if (sueldo == null || sueldo < 0) {
-            throw new IllegalArgumentException("Error: El sueldo no puede ser negativo.");
+
+        if (sueldo == null || sueldo <= 0) {                    // ← aquí el cambio
+            throw new IllegalArgumentException("Error: El sueldo debe ser mayor a cero.");
         }
         if (cargo == null || cargo.trim().isEmpty()) {
             throw new IllegalArgumentException("Error: El cargo no puede estar vacío.");
         }
-        
+
         this.sueldo = sueldo;
         this.cargo = cargo;
     }

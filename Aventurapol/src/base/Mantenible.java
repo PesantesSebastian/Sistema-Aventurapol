@@ -1,6 +1,6 @@
 package base;
 
 public interface Mantenible {
-    void iniciarMantenimiento(String motivo);
-    void finalizarMantenimiento();
+    public void iniciarMantenimiento(String motivo);
+    public void finalizarMantenimiento();
 }

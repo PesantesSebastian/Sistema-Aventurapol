@@ -119,7 +119,7 @@ public class Parque {
     }
 
     // Modulo 2.2: Aqui brilla el UML (Interfaces, Empleados, Downcasting)
-    public void gestionarMantenimiento(String cedulaEmpleado, String nombreAtraccion, boolean ponerOperativa) {
+    public void gestionarMantenimiento(String cedulaEmpleado, String nombreAtraccion, boolean nuevoEstado) {
         Persona empleado = null;
         for (Persona p : listaPersonas) {
             if (p.getCedula().equals(cedulaEmpleado)) { empleado = p; break; }
@@ -140,12 +140,12 @@ public class Parque {
 
         // DOWNCASTING DE INTERFAZ: Forzamos al empleado a actuar como el gestor que es
         base.GestionableAtraccion encargado = (base.GestionableAtraccion) empleado;
-        encargado.cambiarEstadoAtraccion(juego, ponerOperativa);
+        encargado.cambiarEstadoAtraccion(juego, nuevoEstado);
 
         // Si el juego cerro y resulta que es Extremo (Mantenible), disparamos su metodo
         if (juego instanceof base.Mantenible) {
             base.Mantenible juegoExtremo = (base.Mantenible) juego;
-            if (!ponerOperativa) {
+            if (!nuevoEstado) {
                 juegoExtremo.iniciarMantenimiento("Revision tecnica ordenada por " + empleado.getNombre());
             } else {
                 juegoExtremo.finalizarMantenimiento();
