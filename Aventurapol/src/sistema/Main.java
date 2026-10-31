@@ -43,21 +43,48 @@ public class Main {
             String opcion = scanner.nextLine(); 
 
             switch (opcion) {
-                case "1.1": 
+                                case "1.1": 
                     System.out.println("\n--- REGISTRAR VISITANTE ---");
-                    System.out.print("Cedula: > ");
+                    
+                    System.out.print("Cédula: > ");
                     String cedula = scanner.nextLine();
+                    if (cedula.trim().isEmpty()) {
+                        System.out.println("Error: La cedula no puede estar vacia.");
+                        break; 
+                    }
+
                     System.out.print("Nombre: > ");
                     String nombre = scanner.nextLine();
+                    if (nombre.trim().isEmpty()) {
+                        System.out.println("Error: El nombre no puede estar vacio.");
+                        break;
+                    }
+
                     System.out.print("Edad: > ");
                     String inEdad = scanner.nextLine();
-                    if (!inEdad.matches("[0-9]+")) { System.out.println("Error: Use solo numeros enteros."); break; }
-                    
-                    System.out.print("Estatura (ej. 1.75): > ");
+                    if (!inEdad.matches("[0-9]+")) { 
+                        System.out.println("Error: La edad debe ser un numero entero.");
+                        break; 
+                    }
+                    int edad = Integer.parseInt(inEdad);
+                    if (edad < 0 || edad > 120) {
+                        System.out.println("Error: La edad debe estar entre 0 y 120 anios.");
+                        break;
+                    }
+
+                    System.out.print("Estatura (use punto, ej. 1.65): > ");
                     String inEst = scanner.nextLine();
-                    if (!inEst.matches("[0-9]+(\\.[0-9]+)?")) { System.out.println("Error de formato en estatura."); break; }
-                    
-                    parque.registrarPersona(new Visitante(cedula, nombre, Integer.parseInt(inEdad), Double.parseDouble(inEst))); 
+                    if (!inEst.matches("[0-9]+(\\.[0-9]+)?")) { 
+                        System.out.println("Error: Use punto para los decimales (ej. 1.65).");
+                        break; 
+                    }
+                    double estatura = Double.parseDouble(inEst);
+                    if (estatura <= 0.0 || estatura > 2.50) {
+                        System.out.println("Error: La estatura debe ser mayor a 0 y menor a 2.50 m.");
+                        break;
+                    }
+
+                    parque.registrarPersona(new Visitante(cedula, nombre, edad, estatura)); 
                     break;
 
                 case "1.2":
