@@ -6,7 +6,7 @@ public abstract class Entrada {
     protected Integer usosDisponibles;
 
     public Entrada(String codigoBoleto, Double precioBase, Integer usosDisponibles) {
-        if (codigoBoleto == null || codigoBoleto.trim().isEmpty()) {
+        if (codigoBoleto == null || codigoBoleto.trim().isEmpty() || codigoBoleto.trim().isEmpty()) {
             throw new IllegalArgumentException("Error: El codigo de boleto no puede estar vacio ni ser nulo.");
         }
         if (precioBase == null || precioBase <= 0) {

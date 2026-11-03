@@ -12,7 +12,7 @@ public class Administrador extends Empleado implements GestionableAtraccion {
 
     @Override
     public void cambiarEstadoAtraccion(Atraccion a, Boolean estado) {
-       if (a == null) {
+       if (a == null || a.getNombre().trim().isEmpty()) {
     throw new IllegalArgumentException("Error: La atraccion no existe.");
        }
         
