@@ -23,7 +23,7 @@ public abstract class Empleado extends Persona {
     @Override
     public void mostrarInformacion() {
         System.out.println("--- EMPLEADO ---");
-        System.out.println("Cedula: " + getCedula());
+        System.out.println("Codigo: " + getCedula());
         System.out.println("Nombre: " + getNombre());
         System.out.println("Cargo: " + cargo);
         System.out.println("Sueldo: $" + sueldo);
