@@ -16,9 +16,9 @@ public class Main {
 
         
         System.out.println("Iniciando sistema y registrando personal...");
-        parque.registrarPersona(new Administrador("001", "Jefe Roberto", 1500.0));
-        parque.registrarPersona(new Tecnico("002", "Ing. Marta", 1200.0, "Mecanica"));
-        parque.registrarPersona(new PersonalLimpieza("003", "Don Carlos", 500.0, "Zona Norte"));
+        parque.registrarPersona(new Administrador("099252819", "Jefe Roberto", 1500.0));
+        parque.registrarPersona(new Tecnico("09922943", "Ing. Marta", 1200.0, "Mecanica"));
+        parque.registrarPersona(new PersonalLimpieza("099229482", "Don Carlos", 500.0, "Zona Norte"));
 
         boolean salir = false;
 
@@ -43,7 +43,7 @@ public class Main {
             String opcion = scanner.nextLine(); 
 
             switch (opcion) {
-                                case "1.1": 
+                    case "1.1": 
                     System.out.println("\n--- REGISTRAR VISITANTE ---");
                     
                     System.out.print("Cédula: > ");
