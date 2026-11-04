@@ -1,9 +1,8 @@
 package entidades;
 
 import base.Atraccion;
-import base.Mantenible;
 
-public class AtraccionInfantil extends Atraccion implements Mantenible {
+public class AtraccionInfantil extends Atraccion {
     private Double estaturaMaxima;
 
     public AtraccionInfantil(String nombre, Double estaturaMaxima) {
@@ -32,16 +31,5 @@ public class AtraccionInfantil extends Atraccion implements Mantenible {
             System.out.println(v.getNombre() + " supera la estatura maxima para " + getNombre() + ".");
             return false;
         }
-    }
-        @Override
-    public void iniciarMantenimiento(String motivo) {
-        setOperativa(false);
-        System.out.println("Mantenimiento INICIADO en '" + getNombre() + "'. Motivo: " + motivo);
-    }
-
-    @Override
-    public void finalizarMantenimiento() {
-        setOperativa(true);
-        System.out.println("Mantenimiento FINALIZADO en '" + getNombre() + "'. Vuelve a estar operativa.");
     }
 }

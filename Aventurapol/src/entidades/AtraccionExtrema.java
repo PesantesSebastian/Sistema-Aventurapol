@@ -1,7 +1,9 @@
 package entidades;
 
 import base.Atraccion;
-public class AtraccionExtrema extends Atraccion {
+import base.Mantenible;
+
+public class AtraccionExtrema extends Atraccion implements Mantenible {
     private Double estaturaMinima;
     private Integer edadMinima;
 
@@ -36,5 +38,17 @@ public class AtraccionExtrema extends Atraccion {
             System.out.println(v.getNombre() + " no cumple con los requisitos minimos para " + getNombre() + ".");
             return false;
         }
+    }
+
+    @Override
+    public void iniciarMantenimiento(String motivo) {
+        setOperativa(false);
+        System.out.println("Mantenimiento INICIADO en '" + getNombre() + "'. Motivo: " + motivo);
+    }
+
+    @Override
+    public void finalizarMantenimiento() {
+        setOperativa(true);
+        System.out.println("Mantenimiento FINALIZADO en '" + getNombre() + "'. Vuelve a estar operativa.");
     }
 }
